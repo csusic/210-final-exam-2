@@ -17,6 +17,7 @@ using namespace std;
 struct Customer {
     string name;
     string drinkOrder;
+    Customer *next; //ptr
 };
 
 int main() {
