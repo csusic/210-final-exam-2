@@ -50,13 +50,13 @@ int main() {
         Node *newVal = new Node;
         if (!head) {
             //customer at head is always served
-            cout << "Head:" << endl;
+            cout << "Served" << endl;
             head = newVal;
             newVal->next = nullptr;
             newVal->name = names[temp];
             //50% probability someone will join
             if (rand() % 2 == 0) {
-            cout << "Joined: " << endl;
+            cout << "Joined" << endl;
             //output from linked list
             Node* current = head;
                 while (current) {
@@ -68,16 +68,25 @@ int main() {
             if (rand() % 2 == 0) {
             //muffin vendor with std::deque
                 cout << "Muffin" << endl;
+                head = newVal;
+                newVal->next = nullptr;
+                newVal->name = muffinQueue[temp];
             }
             //50% probability of friendship bracelets
             if (rand() % 2 == 0) {
             //friendship bracelet vendor with std::vector
                 cout << "Friendship bracelet" << endl;
+                head = newVal;
+                newVal->next = nullptr;
+                //newVal->name = braceletQueue[temp];
             }
             //50% probability of scarves
             if (rand() % 2 == 0) {
             //scarf vendor with std::map
                 cout << "Scarf" << endl;
+                head = newVal;
+                newVal->next = nullptr;
+                //newVal->name = scarfQueue[temp];
             }
             cout << endl;
         }
