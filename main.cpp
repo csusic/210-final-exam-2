@@ -25,8 +25,9 @@ int main() {
     
     //names
     array<string, 8> names = {"Abby", "Bill", "Charlie", "Derek", "Ellie", "Francis", "George", "Hilda"};
-    //linked list
-    list<string> drinkOrderQueue = {"Coffee", "Iced Tea", "Americano", "Water", "Apple Juice", "Green Tea"};
+    //drink orders
+    array<string, 6> drinkOrders = {"Coffee", "Iced Tea", "Americano", "Water", "Apple Juice", "Green Tea"};
+    
     //deque
     deque<string> muffinQueue = {"Oatmeal", "Blueberry", "Chocolate Chip"};
     //vector
@@ -34,11 +35,15 @@ int main() {
     //map
     map<string, int> scarfQueue;
     scarfQueue.insert({"Paisley", 3});
-  
+    
+    
+    CustomerQueue customers;
     //initiliaze queue with 3 customers 
-    list<Customer> customerQueue;
-    Customer *head = nullptr;
-    Customer *newCustomer = new Customer;
+    customers.push_back("Abby");
+    customers.push_back("Bill");
+    customers.push_back("Charlie");
+    //display
+    customers.printList();
     
     int counter = 1; //for counting
     for (int i = 0; i < 10; i++) {
