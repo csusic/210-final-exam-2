@@ -48,10 +48,23 @@ int main() {
         //scarf.push(scarves);
     }
     
-    //10 rounds
-    for (int i = 0; i < 3; i++) {
-        //50% probability
-        if (rand() % 2 == 0) {
+    for (int i = 0; i < 10; i++) {
+        //10 rounds, initialize queue with 3 customers
+        for (int i = 0; i < 3; i++) {
+        
+            //customer at head is always served
+            //if queue is empty, no customer served 
+        
+            //50% probability someone will join
+            if (rand() % 2 == 0) {
+        
+            }
+        
+            //muffin vendor with std::deque
+        
+            //friendship bracelet vendor with std::vector
+        
+            //scarf vendor with std::map
         }
     }
 
