@@ -32,7 +32,6 @@ int main() {
     array<string, 8> names = {"Abby", "Bill", "Charlie", "Derek", "Ellie", "Francis", "George", "Hilda"};
     //drink orders
     array<string, 6> drinkOrders = {"Coffee", "Iced Tea", "Americano", "Water", "Apple Juice", "Green Tea"};
-    
     //deque
     deque<string> muffinQueue = {"Oatmeal", "Blueberry", "Chocolate Chip"};
     //vector
@@ -41,47 +40,46 @@ int main() {
     map<string, int> scarfQueue;
     scarfQueue.insert({"Paisley", 3});
     
-    //copied from lab 17 solution with adjustments
-    Node *head = nullptr;
     int counter = 1; //for counting
-    //create a linked list of size SIZE with random numbers 0-99
     for (int i = 0; i < SIZE; i++) {
+       //10 rounds
         cout << "Round " << counter++ << endl;
-        int tmp_val = rand() % 100;
-        Node *newVal = new Node;
-        //adds node at head
-        if (!head) { //if this is the first node, it's the new head
-            head = newVal;
-            newVal->next = nullptr;
-            newVal->name = tmp_val;
-        }
-        else { //its a second or subsequent node; place at the head
-            newVal->next = head;
-            newVal->name = tmp_val;
-            head = newVal;
-        }
-    }
-    
-       /* //10 rounds
         //if queue isn't empty
+        Node *head = nullptr;
+        Node *newVal = new Node;
         if (!head) {
             //customer at head is always served
             cout << "Head:" << endl;
-            //50% probability someone will join
-            if (rand() % 2 == 0) {
-                cout << "Serving: " << endl;
-            }
-            //if queue is empty, no customer served
-            } else {
-                cout << "No customer served." << endl;
-            }
-            
-            //muffin vendor with std::deque
-        
-            //friendship bracelet vendor with std::vector
-        
-            //scarf vendor with std::map
-    }*/
+            head = newVal;
+            newVal->next = nullptr;
+            newVal->name = names[0];
+        }
+        else {
+            newVal->next = head;
+            newVal->name = names[0];
+            head = newVal;
+        }
+        //50% probability someone will join
+        if (rand() % 2 == 0) {
+            cout << "Serving: " << endl;
+            //output from linked list
+        Node* current = head;
+        while (current) {
+            cout << current -> name << endl;
+            current = current->next;
+        }
+        }
+        //if queue is empty, no customer served
+        else {
+            cout << "No customer served." << endl;
+        }
+        //muffin vendor with std::deque
+    
+        //friendship bracelet vendor with std::vector
+
+        //scarf vendor with std::map
+
+    }
 
     return 0;
 }
