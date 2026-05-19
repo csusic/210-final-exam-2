@@ -3,7 +3,6 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
-#include <queue>
 #include <vector>
 #include <array>
 #include <deque>
@@ -13,7 +12,10 @@
 #include <ctime>
 using namespace std;
 
+//number of simulations
 const int SIZE = 10;
+//min and max for names size
+const int MIN = 0, MAX = 7;
 
 //struct for linked list
 struct Node {
@@ -21,9 +23,6 @@ struct Node {
     string drinkOrder;
     Node *next; //ptr
 };
-
-//function prototype
-void output(Node *);
 
 int main() {
     srand(time(0));
@@ -42,7 +41,9 @@ int main() {
     
     int counter = 1; //for counting
     for (int i = 0; i < SIZE; i++) {
-       //10 rounds
+        //temp number for names range
+        int temp = rand() % (MAX - MIN + 1) + MIN;
+        //10 rounds
         cout << "Round " << counter++ << endl;
         //if queue isn't empty
         Node *head = nullptr;
@@ -52,33 +53,41 @@ int main() {
             cout << "Head:" << endl;
             head = newVal;
             newVal->next = nullptr;
-            newVal->name = names[0];
-        }
-        else {
-            newVal->next = head;
-            newVal->name = names[0];
-            head = newVal;
-        }
-        //50% probability someone will join
-        if (rand() % 2 == 0) {
-            cout << "Serving: " << endl;
+            newVal->name = names[temp];
+            //50% probability someone will join
+            if (rand() % 2 == 0) {
+            cout << "Joined: " << endl;
             //output from linked list
-        Node* current = head;
-        while (current) {
-            cout << current -> name << endl;
-            current = current->next;
-        }
+            Node* current = head;
+                while (current) {
+                    cout << current -> name << endl;
+                    current = current->next;
+                }
+            }
+            //50% probability of muffins
+            if (rand() % 2 == 0) {
+            //muffin vendor with std::deque
+                cout << "Muffin" << endl;
+            }
+            //50% probability of friendship bracelets
+            if (rand() % 2 == 0) {
+            //friendship bracelet vendor with std::vector
+                cout << "Friendship bracelet" << endl;
+            }
+            //50% probability of scarves
+            if (rand() % 2 == 0) {
+            //scarf vendor with std::map
+                cout << "Scarf" << endl;
+            }
+            cout << endl;
         }
         //if queue is empty, no customer served
         else {
             cout << "No customer served." << endl;
+            newVal->next = head;
+            newVal->name = names[temp];
+            head = newVal;
         }
-        //muffin vendor with std::deque
-    
-        //friendship bracelet vendor with std::vector
-
-        //scarf vendor with std::map
-
     }
 
     return 0;
