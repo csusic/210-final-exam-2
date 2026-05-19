@@ -12,7 +12,7 @@
 using namespace std;
 
 //struct for linked list
-struct CustomerNode {
+struct Customer {
     string name;
     string drinkOrder;
 };
@@ -20,16 +20,14 @@ struct CustomerNode {
 int main() {
     srand(time(0));
     
-    //Customer a;
-    
     //linked list
-    //list<Customer> drinkOrder; 
+    list<Customer> drinkOrder; 
     //deque
-    //deque<Customer> muffin;
+    deque<Customer> muffin;
     //vector
-    //vector<Customer> bracelet;
+    vector<Customer> bracelet;
     //map
-    //map<Customer> scarf;
+    map<Customer, int> scarf;
 
     //names
     array<string, 8> names = {"Abby", "Bill", "Charlie", "Derek", "Ellie", "Francis", "George", "Hilda"};
@@ -44,15 +42,17 @@ int main() {
 
     //initiliaze queue with 3 customers 
     for (int i = 0; i < 3; i++) {
-        drinkOrder.push_back(drinkOrders);
-        muffin.push_back(muffins);
-        bracelet.push_back(bracelets);
-        scarf.push(scarves);
+        //drinkOrder.push_back(drinkOrders);
+        //muffin.push_back(muffins);
+        //bracelet.push_back(bracelets);
+        //scarf.push(scarves);
     }
     
     //10 rounds
     for (int i = 0; i < 3; i++) {
-        
+        //50% probability
+        if (rand() % 2 == 0) {
+        }
     }
 
     return 0;
