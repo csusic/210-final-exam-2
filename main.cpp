@@ -3,6 +3,7 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
+#include <queue>
 #include <vector>
 #include <array>
 #include <deque>
@@ -12,12 +13,17 @@
 #include <ctime>
 using namespace std;
 
+const int SIZE = 10;
+
 //struct for linked list
-struct Customer {
+struct Node {
     string name;
     string drinkOrder;
-    Customer *next; //ptr
+    Node *next; //ptr
 };
+
+//function prototype
+void output(Node *);
 
 int main() {
     srand(time(0));
@@ -35,21 +41,30 @@ int main() {
     map<string, int> scarfQueue;
     scarfQueue.insert({"Paisley", 3});
     
-    
-    CustomerQueue customers;
-    //initiliaze queue with 3 customers 
-    customers.push_back("Abby");
-    customers.push_back("Bill");
-    customers.push_back("Charlie");
-    //display
-    customers.printList();
-    
+    //copied from lab 17 solution with adjustments
+    Node *head = nullptr;
     int counter = 1; //for counting
-    for (int i = 0; i < 10; i++) {
+    //create a linked list of size SIZE with random numbers 0-99
+    for (int i = 0; i < SIZE; i++) {
         cout << "Round " << counter++ << endl;
-        //10 rounds
+        int tmp_val = rand() % 100;
+        Node *newVal = new Node;
+        //adds node at head
+        if (!head) { //if this is the first node, it's the new head
+            head = newVal;
+            newVal->next = nullptr;
+            newVal->name = tmp_val;
+        }
+        else { //its a second or subsequent node; place at the head
+            newVal->next = head;
+            newVal->name = tmp_val;
+            head = newVal;
+        }
+    }
+    
+       /* //10 rounds
         //if queue isn't empty
-        if (!customerQueue.empty()) {
+        if (!head) {
             //customer at head is always served
             cout << "Head:" << endl;
             //50% probability someone will join
@@ -66,7 +81,7 @@ int main() {
             //friendship bracelet vendor with std::vector
         
             //scarf vendor with std::map
-    }
+    }*/
 
     return 0;
 }
