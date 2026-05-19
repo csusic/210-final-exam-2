@@ -25,27 +25,17 @@ int main() {
     
     //names
     array<string, 8> names = {"Abby", "Bill", "Charlie", "Derek", "Ellie", "Francis", "George", "Hilda"};
-    
     //linked list
-    list<Customer> drinkOrderQueue;
-    //drink orders
-    array<string, 6> drinkOrders = {"Coffee", "Iced Tea", "Americano", "Water", "Apple Juice", "Green Tea"};
-    
+    list<string> drinkOrderQueue = {"Coffee", "Iced Tea", "Americano", "Water", "Apple Juice", "Green Tea"};
     //deque
-    deque<Customer> muffinQueue;
-    //muffins
-    array<string, 8> muffins = {"Abby", "Bill", "Charlie", "Derek", "Ellie", "Francis", "George", "Hilda"};
-    
+    deque<string> muffinQueue = {"Oatmeal", "Blueberry", "Chocolate Chip"};
     //vector
-    vector<Customer> braceletQueue;
-    //friendship bracelets
-    array<string, 6> bracelets = {"Coffee", "Iced Tea", "Americano", "Water", "Apple Juice"};
+    vector<string> braceletQueue = {"Red", "Yellow", "Blue"};
     
     //map
     map<Customer, int> scarfQueue;
-    //scarves
-    array<string, 6> scarves = {"Coffee", "Iced Tea", "Americano", "Water", "Apple Juice"};
-
+    scarfQueue.insert({3, "Paisley"});
+  
     //initiliaze queue with 3 customers 
     std::queue<std::string> customerQueue;
     customerQueue.push("Customer 1");
@@ -56,20 +46,19 @@ int main() {
     for (int i = 0; i < 10; i++) {
         cout << "Round " << counter++ << endl;
         //10 rounds
+        //if queue isn't empty
+        if (!customerQueue.empty()) {
             //customer at head is always served
-            if (!drinkOrderQueue.empty()) {
-                cout << "Serving: " << endl;
-            //if queue is empty, no customer served
-            } else {
-                cout << "No customer." << endl;
-            }
-        
-        
+            cout << "Head:" << endl;
             //50% probability someone will join
             if (rand() % 2 == 0) {
-        
+                cout << "Serving: " << endl;
             }
-        
+            //if queue is empty, no customer served
+            } else {
+                cout << "No customer served." << endl;
+            }
+            
             //muffin vendor with std::deque
         
             //friendship bracelet vendor with std::vector
