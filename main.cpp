@@ -31,16 +31,14 @@ int main() {
     deque<string> muffinQueue = {"Oatmeal", "Blueberry", "Chocolate Chip"};
     //vector
     vector<string> braceletQueue = {"Red", "Yellow", "Blue"};
-    
     //map
-    map<Customer, int> scarfQueue;
-    scarfQueue.insert({3, "Paisley"});
+    map<string, int> scarfQueue;
+    scarfQueue.insert({"Paisley", 3});
   
     //initiliaze queue with 3 customers 
-    std::queue<std::string> customerQueue;
-    customerQueue.push("Customer 1");
-    customerQueue.push("Customer 2");
-    customerQueue.push("Customer 3");
+    list<Customer> customerQueue;
+    Customer *head = nullptr;
+    Customer *newCustomer = new Customer;
     
     int counter = 1; //for counting
     for (int i = 0; i < 10; i++) {
